@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
+<title>Glave Creatives — Influencer Marketing Agency</title>
+<meta name="description" content="Glave Creatives pairs ambitious brands with the right creators. Strategy, sourcing and campaigns built to move revenue. 500+ influencer connections managed." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --orange:#FF6B00;
+  --orange-deep:#E85D00;
+  --orange-soft:#FF8A3D;
+  --bg:#FFFFFF;
+  --bg-soft:#FFF8F3;
+  --surface:#FFFFFF;
+  --text:#141416;
+  --muted:#6A6A73;
+  --border:rgba(20,20,22,.09);
+  --header-bg:rgba(255,255,255,.82);
+  --shadow-sm:0 8px 24px -14px rgba(20,20,22,.28);
+  --shadow-md:0 26px 60px -30px rgba(20,20,22,.35);
+  --shadow-orange:0 18px 40px -18px rgba(255,107,0,.65);
+  --radius:20px;
+  --max:1160px;
+}
+[data-theme="dark"]{
+  --bg:#0C0C0E;
+  --bg-soft:#111114;
+  --surface:#16161A;
+  --text:#F4F4F6;
+  --muted:#9A9AA5;
+  --border:rgba(255,255,255,.09);
+  --header-bg:rgba(12,12,14,.78);
+  --shadow-sm:0 8px 24px -14px rgba(0,0,0,.8);
+  --shadow-md:0 26px 60px -30px rgba(0,0,0,.9);
+  --shadow-orange:0 18px 40px -18px rgba(255,107,0,.5);
+}
+
+/* ============ BASE ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  transition:background .35s ease,color .35s ease;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--orange);color:#fff}
+
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.section--soft{background:var(--bg-soft);transition:background .35s ease}
+
+/* ============ TYPOGRAPHY HELPERS ============ */
+h1,h2,h3{letter-spacing:-.03em;line-height:1.1;font-weight:800}
+h2{font-size:clamp(1.85rem,4vw,2.75rem)}
+.lead{color:var(--muted);font-size:clamp(1rem,1.6vw,1.125rem);max-width:56ch}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:18px;
+}
+.eyebrow-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 0 4px rgba(255,107,0,.16);
+}
+.section-head{max-width:640px;margin-bottom:56px}
+.section-head p{margin-top:16px}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:14px 26px;border-radius:999px;border:1px solid transparent;
+  font-size:.94rem;font-weight:600;letter-spacing:-.01em;
+  transition:transform .25s ease,background .25s ease,border-color .25s ease,box-shadow .25s ease,color .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:var(--shadow-orange)}
+.btn-primary:hover{background:var(--orange-deep);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
+.btn-light{background:#fff;color:#141416;box-shadow:0 14px 30px -14px rgba(0,0,0,.4)}
+.btn-light:hover{transform:translateY(-2px)}
+.btn svg{width:17px;height:17px;transition:transform .25s ease}
+.btn:hover svg{transform:translateX(3px)}
+
+/* ============ HEADER ============ */
+.header{
+  position:sticky;top:0;z-index:100;
+  background:var(--header-bg);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:background .35s ease,border-color .35s ease;
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.12rem;letter-spacing:-.035em}
+.logo-mark{
+  width:30px;height:30px;border-radius:9px;flex:none;
+  background:linear-gradient(140deg,var(--orange-soft),var(--orange-deep));
+  display:grid;place-items:center;color:#fff;font-size:.95rem;font-weight:800;
+  box-shadow:var(--shadow-orange);
+}
+.logo span.dot{color:var(--orange)}
+
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{
+  font-size:.9rem;font-weight:500;color:var(--muted);
+  position:relative;transition:color .25s ease;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;
+  background:var(--orange);border-radius:2px;transition:width .3s ease;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.mobile-cta{display:none}
+
+.nav-actions{display:flex;align-items:center;gap:14px}
+
+/* Theme toggle */
+.theme-toggle{
+  width:42px;height:42px;border-radius:50%;
+  display:grid;place-items:center;
+  background:transparent;border:1px solid var(--border);color:var(--text);
+  transition:background .25s ease,border-color .25s ease,transform .25s ease,color .25s ease;
+}
+.theme-toggle:hover{border-color:var(--orange);color:var(--orange);transform:rotate(-15deg)}
+.theme-toggle svg{width:19px;height:19px}
+.icon-sun{display:none}
+[data-theme="dark"] .icon-sun{display:block}
+[data-theme="dark"] .icon-moon{display:none}
+
+/* Hamburger */
+.hamburger{
+  display:none;width:42px;height:42px;border-radius:12px;
+  border:1px solid var(--border);background:transparent;
+  flex-direction:column;align-items:center;justify-content:center;gap:5px;
+}
+.hamburger span{
+  width:18px;height:2px;background:var(--text);border-radius:2px;
+  transition:transform .3s ease,opacity .3s ease;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============ HERO ============ */
+.hero{padding:88px 0 76px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;top:-260px;right:-180px;width:640px;height:640px;
+  background:radial-gradient(circle,rgba(255,107,0,.16),transparent 66%);
+  pointer-events:none;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;
+  position:relative;
+}
+.hero h1{
+  font-size:clamp(2.35rem,5.2vw,3.9rem);
+  margin:6px 0 22px;
+}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero .lead{margin-bottom:34px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:38px}
+
+.hero-trust{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.avatars{display:flex}
+.avatars span{
+  width:34px;height:34px;border-radius:50%;border:2.5px solid var(--bg);
+  margin-left:-10px;
+  background:linear-gradient(140deg,var(--orange-soft),var(--orange-deep));
+}
+.avatars span:first-child{margin-left:0}
+.avatars span:nth-child(2){background:linear-gradient(140deg,#FFB27A,#FF6B00)}
+.avatars span:nth-child(3){background:linear-gradient(140deg,#FFD9BE,#FF8A3D)}
+.avatars span:nth-child(4){background:linear-gradient(140deg,#FF8A3D,#D95400)}
+.hero-trust p{font-size:.87rem;color:var(--muted);line-height:1.35}
+.hero-trust strong{color:var(--text);font-weight:700}
+
+/* Hero visual */
+.hero-visual{position:relative}
+.glow{
+  position:absolute;inset:-14% -10%;
+  background:radial-gradient(circle at 60% 40%,rgba(255,107,0,.22),transparent 62%);
+  filter:blur(18px);pointer-events:none;
+}
+.panel{
+  position:relative;background:var(--surface);border:1px solid var(--border);
+  border-radius:26px;padding:26px;box-shadow:var(--shadow-md);
+  transition:background .35s ease,border-color .35s ease;
+}
+.panel-top{display:flex;align-items:center;gap:13px;margin-bottom:26px}
+.panel-avatar{
+  width:44px;height:44px;border-radius:14px;flex:none;
+  background:linear-gradient(140deg,var(--orange-soft),var(--orange-deep));
+}
+.panel-id{display:flex;flex-direction:column;line-height:1.35;flex:1}
+.panel-id strong{font-size:.92rem;font-weight:700}
+.panel-id span{font-size:.78rem;color:var(--muted)}
+.live{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:#12A65E;background:rgba(18,166,94,.1);
+  padding:6px 11px;border-radius:999px;
+}
+.live i{width:6px;height:6px;border-radius:50%;background:#12A65E;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+.chart{display:flex;align-items:flex-end;gap:9px;height:118px;margin-bottom:26px}
+.bar{
+  flex:1;border-radius:7px 7px 4px 4px;
+  background:linear-gradient(180deg,var(--orange-soft),var(--orange));
+  opacity:.9;transform-origin:bottom;
+  animation:grow .9s cubic-bezier(.2,.8,.2,1) backwards;
+}
+.bar:last-child{background:linear-gradient(180deg,#FFB27A,var(--orange));opacity:1}
+.bar:nth-child(1){animation-delay:.05s}
+.bar:nth-child(2){animation-delay:.12s}
+.bar:nth-child(3){animation-delay:.19s}
+.bar:nth-child(4){animation-delay:.26s}
+.bar:nth-child(5){animation-delay:.33s}
+.bar:nth-child(6){animation-delay:.40s}
+.bar:nth-child(7){animation-delay:.47s}
+@keyframes grow{from{transform:scaleY(.06);opacity:.3}to{transform:scaleY(1);opacity:1}}
+
+.panel-stats{display:flex;gap:8px;border-top:1px solid var(--border);padding-top:20px}
+.panel-stats div{flex:1;display:flex;flex-direction:column}
+.panel-stats strong{font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
+.panel-stats span{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+
+.float{
+  position:absolute;display:flex;align-items:center;gap:9px;
+  background:var(--surface);border:1px solid var(--border);
+  padding:11px 16px;border-radius:14px;
+  font-size:.8rem;font-weight:600;box-shadow:var(--shadow-sm);
+  transition:background .35s ease,border-color .35s ease;
+}
+.float-1{top:-22px;left:-26px;animation:floaty 6s ease-in-out infinite}
+.float-2{bottom:-22px;right:-18px;animation:floaty 6s ease-in-out infinite .8s}
+.float-dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ============ SERVICES ============ */
+.grid-services{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;
+}
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:30px 26px;
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease,background .35s ease;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(255,107,0,.4)}
+.card-icon{
+  width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+  background:rgba(255,107,0,.1);color:var(--orange);margin-bottom:20px;
+}
+.card-icon svg{width:22px;height:22px}
+.card h3{font-size:1.08rem;margin-bottom:9px;letter-spacing:-.02em}
+.card p{font-size:.9rem;color:var(--muted);line-height:1.65}
+
+/* ============ REGIONAL & POLITICAL ============ */
+.split{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+}
+.split h2{margin-bottom:16px}
+.split .lead{margin-bottom:0}
+.split ul{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:8px}
+.split li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;line-height:1.6}
+.split li svg{width:20px;height:20px;color:var(--orange);flex:none;margin-top:2px}
+
+/* ============ ABOUT ============ */
+.about-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
+}
+.about-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:24px;padding:34px;box-shadow:var(--shadow-sm);
+  transition:background .35s ease,border-color .35s ease;
+}
+.about-big{
+  font-size:clamp(3rem,6vw,4rem);font-weight:800;color:var(--orange);
+  line-height:1;letter-spacing:-.05em;
+}
+.about-card > p{color:var(--muted);margin-top:8px}
+.about-card ul{
+  list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:26px;
+}
+.about-card li{display:flex;gap:10px;font-size:.9rem;color:var(--text)}
+.about-card li svg{width:18px;height:18px;color:var(--orange);flex:none;margin-top:2px}
+
+/* ============ PROCESS ============ */
+.grid-process{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.step{position:relative;padding-top:8px}
+.step-num{
+  font-size:.8rem;font-weight:800;letter-spacing:.1em;
+  color:var(--orange);margin-bottom:16px;display:block;
+}
+.step-line{height:2px;background:var(--border);border-radius:2px;margin-bottom:22px;position:relative;overflow:hidden}
+.step-line::after{
+  content:"";position:absolute;inset:0;width:34%;
+  background:var(--orange);border-radius:2px;
+}
+.step h3{font-size:1.05rem;margin-bottom:9px;letter-spacing:-.02em}
+.step p{font-size:.9rem;color:var(--muted)}
+
+/* ============ ROSTER ============ */
+.roster-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:28px;padding:48px;
+  display:flex;align-items:center;justify-content:space-between;gap:32px;
+  box-shadow:var(--shadow-sm);flex-wrap:wrap;
+  transition:background .35s ease,border-color .35s ease;
+}
+.roster-card h2{margin-bottom:10px}
+.roster-card p{color:var(--muted);max-width:52ch}
+.roster-card .btn{flex:none}
+
+/* ============ CTA ============ */
+.cta{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#FF6B00,#FF8A3D 60%,#FFA25C);
+  border-radius:30px;padding:72px 40px;text-align:center;color:#fff;
+  box-shadow:var(--shadow-orange);
+}
+.cta::before{
+  content:"";position:absolute;top:-160px;right:-120px;width:420px;height:420px;
+  border-radius:50%;background:rgba(255,255,255,.14);
+}
+.cta::after{
+  content:"";position:absolute;bottom:-200px;left:-140px;width:420px;height:420px;
+  border-radius:50%;background:rgba(255,255,255,.1);
+}
+.cta-inner{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.cta h2{font-size:clamp(1.9rem,4.2vw,2.9rem);margin-bottom:16px}
+.cta p{opacity:.94;margin-bottom:34px;font-size:1.02rem}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+
+/* ============ FOOTER ============ */
+.footer{
+  border-top:1px solid var(--border);padding:64px 0 34px;margin-top:96px;
+  transition:border-color .35s ease;
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:52px;
+}
+.footer-brand p{font-size:.9rem;color:var(--muted);margin-top:16px;max-width:32ch}
+.footer-col h4{
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.13em;
+  color:var(--muted);margin-bottom:16px;font-weight:700;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.footer-col a{font-size:.9rem;color:var(--text);opacity:.8;transition:color .25s,opacity .25s}
+.footer-col a:hover{color:var(--orange);opacity:1}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  padding-top:26px;border-top:1px solid var(--border);
+  font-size:.83rem;color:var(--muted);
+}
+.socials{display:flex;gap:10px}
+.socials a{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--border);color:var(--muted);
+  transition:color .25s,border-color .25s,transform .25s;
+}
+.socials a:hover{color:var(--orange);border-color:var(--orange);transform:translateY(-3px)}
+.socials svg{width:16px;height:16px}
+
+/* ============ REVEAL ANIMATION ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:56px}
+  .hero{padding:64px 0 60px}
+  .hero-visual{max-width:460px;margin:0 auto;width:100%}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
+  .footer-brand{grid-column:1 / -1}
+}
+
+@media (max-width:900px){
+  .nav-links{
+    position:fixed;top:74px;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:2px;
+    background:var(--bg);border-bottom:1px solid var(--border);
+    padding:16px 24px 26px;
+    opacity:0;visibility:hidden;transform:translateY(-12px);
+    transition:opacity .3s ease,transform .3s ease,visibility .3s;
+    box-shadow:0 30px 40px -24px rgba(0,0,0,.35);
+  }
+  .nav-links.open{opacity:1;visibility:visible;transform:translateY(0)}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:13px 0;font-size:1rem;color:var(--text);border-bottom:1px solid var(--border)}
+  .nav-links a::after{display:none}
+  .mobile-cta{display:block;margin-top:18px}
+  .mobile-cta .btn{width:100%}
+  .nav-cta-desktop{display:none}
+  .hamburger{display:flex}
+  .split, .about-grid{grid-template-columns:1fr;gap:36px}
+}
+
+@media (max-width:768px){
+  .section{padding:68px 0}
+  .cta{padding:56px 24px;border-radius:24px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .roster-card{padding:32px;border-radius:24px}
+  .roster-card .btn{width:100%}
+}
+
+@media (max-width:540px){
+  .container{padding:0 18px}
+  .float-1{left:-10px;top:-18px;font-size:.74rem;padding:9px 13px}
+  .float-2{right:-8px;bottom:-18px;font-size:.74rem;padding:9px 13px}
+  .panel{padding:20px}
+  .hero-actions .btn{width:100%}
+  .footer-grid{grid-template-columns:1fr;gap:30px}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container nav">
+    <a href="#" class="logo">
+      <span class="logo-mark">G</span>
+      Glave Creatives<span class="dot">.</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#regional">Regional</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#roster">Roster</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="mobile-cta"><a href="#contact" class="btn btn-primary">Let's Talk</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+      </button>
+
+      <a href="#contact" class="btn btn-primary nav-cta-desktop">Let's Talk</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Influencer Marketing Studio</span>
+      <h1>We turn creators into your <em>best-performing</em> channel.</h1>
+      <p class="lead">
+        Glave Creatives pairs ambitious brands with the right creators — built on data,
+        not guesswork. Strategy, sourcing and campaigns that actually move revenue.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          Book a strategy call
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost">See what we do</a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="avatars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <p><strong>120+ brands</strong> scaled with creators<br>across 14 markets</p>
+      </div>
+    </div>
+
+    <!-- CSS-only dashboard mock -->
+    <div class="hero-visual reveal d2">
+      <div class="glow" aria-hidden="true"></div>
+
+      <div class="panel">
+        <div class="panel-top">
+          <div class="panel-avatar" aria-hidden="true"></div>
+          <div class="panel-id">
+            <strong>Spring Drop Campaign</strong>
+            <span>14 creators live</span>
+          </div>
+          <span class="live"><i></i>Live</span>
+        </div>
+
+        <div class="chart" aria-hidden="true">
+          <div class="bar" style="--h:42%"></div>
+          <div class="bar" style="--h:62%"></div>
+          <div class="bar" style="--h:50%"></div>
+          <div class="bar" style="--h:78%"></div>
+          <div class="bar" style="--h:66%"></div>
+          <div class="bar" style="--h:92%"></div>
+          <div class="bar" style="--h:100%"></div>
+        </div>
+
+        <div class="panel-stats">
+          <div><strong>2.4M</strong><span>Reach</span></div>
+          <div><strong>8.5x</strong><span>ROAS</span></div>
+          <div><strong>+312%</strong><span>Engagement</span></div>
+        </div>
+      </div>
+
+      <div class="float float-1"><span class="float-dot"></span> New creator match</div>
+      <div class="float float-2">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#FF6B00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg>
+        Sales up 42%
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Services</span>
+      <h2>Everything you need to run creators at scale</h2>
+      <p class="lead">One team, end to end — from finding the right faces to reporting on every rupee spent.</p>
+    </div>
+
+    <div class="grid-services">
+      <article class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 3-4.8 5.5-4.8s4.9 1.8 5.5 4.8"/>
+            <circle cx="17.5" cy="9" r="2.4"/><path d="M16 14.6c2 .3 3.8 1.8 4.3 4.1"/>
+          </svg>
+        </div>
+        <h3>Creator Sourcing</h3>
+        <p>We vet thousands of creators to find the handful that genuinely fit your brand, audience and budget.</p>
+      </article>
+
+      <article class="card reveal d1">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/>
+          </svg>
+        </div>
+        <h3>Campaign Strategy</h3>
+        <p>Full-funnel creative direction — hooks, briefs and content angles built to stop the scroll.</p>
+      </article>
+
+      <article class="card reveal d2">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="6" width="12" height="12" rx="3"/><path d="M15 10.5l5-3v9l-5-3z"/>
+          </svg>
+        </div>
+        <h3>Content Production</h3>
+        <p>UGC, reels and long-form — produced, edited and delivered ready to run on every channel.</p>
+      </article>
+
+      <article class="card reveal d3">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 20V11"/><path d="M10 20V4"/><path d="M16 20v-6"/><path d="M2.5 20h19"/>
+          </svg>
+        </div>
+        <h3>Performance &amp; Reporting</h3>
+        <p>Live dashboards, clear KPIs and post-campaign insights you can actually act on.</p>
+      </article>
+
+      <article class="card reveal d4">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
+          </svg>
+        </div>
+        <h3>Regional &amp; Political Campaigns</h3>
+        <p>Hyperlocal creator networks, vernacular content and on-ground amplification for regional and political outreach.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGIONAL & POLITICAL ================= -->
+<section class="section section--soft" id="regional">
+  <div class="container">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Specialist vertical</span>
+        <h2>Regional &amp; political campaigns that actually land</h2>
+        <p class="lead">
+          National reach is easy to claim, hard to deliver. We build creator networks at the
+          district and state level — with the language, context and trust that only local voices carry.
+        </p>
+      </div>
+
+      <div class="reveal d1">
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            Hyperlocal creator sourcing across districts and states
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            Vernacular-first content briefs and review
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            Rapid-response amplification for key moments
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            Sentiment tracking and on-ground creator coordination
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>About Us</span>
+        <h2>500+ influencer connections, managed end to end</h2>
+        <p class="lead">
+          Glave Creatives is an influencer marketing agency built for brands that want real
+          outcomes, not vanity metrics.
+        </p>
+        <p style="margin-top:18px;color:var(--muted);">
+          We manage a growing network of 500+ influencer connections across regional and
+          national markets. We provide brands with direct access to these creators — and we
+          provide creators with brands that fit their voice. No middlemen, no guesswork.
+        </p>
+        <a href="#roster" class="btn btn-ghost" style="margin-top:28px;">Join our roster</a>
+      </div>
+
+      <div class="about-card reveal d1">
+        <div class="about-big">500+</div>
+        <p>influencer connections under management</p>
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            Vetted across categories and regions
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            Managed contracts, briefs and timelines
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            Brands matched to creators for fit, not follower count
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="section section--soft" id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Process</span>
+      <h2>Simple, transparent, fast</h2>
+      <p class="lead">Four steps from first call to a running campaign — usually inside three weeks.</p>
+    </div>
+
+    <div class="grid-process">
+      <div class="step reveal">
+        <span class="step-num">01</span>
+        <div class="step-line"></div>
+        <h3>Discovery</h3>
+        <p>We dig into your goals, audience and past campaigns to find what's actually working.</p>
+      </div>
+      <div class="step reveal d1">
+        <span class="step-num">02</span>
+        <div class="step-line"></div>
+        <h3>Strategy</h3>
+        <p>A creator slate, content plan and budget split — signed off before anything goes live.</p>
+      </div>
+      <div class="step reveal d2">
+        <span class="step-num">03</span>
+        <div class="step-line"></div>
+        <h3>Launch</h3>
+        <p>We brief, manage and quality-check every creator so you never chase a deadline.</p>
+      </div>
+      <div class="step reveal d3">
+        <span class="step-num">04</span>
+        <div class="step-line"></div>
+        <h3>Optimise</h3>
+        <p>Weekly reporting, iterative creative and scaling what performs best.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOIN ROSTER ================= -->
+<section class="section" id="roster">
+  <div class="container">
+    <div class="roster-card reveal">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Creators</span>
+        <h2>Join our roster</h2>
+        <p>
+          Are you a creator? We're always looking for talented voices to match with brands.
+          Fill out the form and we'll reach out when there's a fit.
+        </p>
+      </div>
+
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdoFF7eO0nui2LAOkW0IgfnPNrNPXprdouC_39gC6dQ-U5pxg/viewform"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary"
+      >
+        Apply to join the roster
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="cta reveal">
+      <div class="cta-inner">
+        <h2>Let's build your next campaign.</h2>
+        <p>Tell us about your brand and goals — we'll come back with a creator slate and a plan within 48 hours.</p>
+        <div class="cta-actions">
+          <a href="mailto:glavecreative@gmail.com" class="btn btn-light">
+            glavecreative@gmail.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-mark">G</span>
+          Glave Creatives<span class="dot">.</span>
+        </a>
+        <p>An influencer marketing studio helping ambitious brands grow through creators who actually convert.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Creator Sourcing</a></li>
+          <li><a href="#services">Campaign Strategy</a></li>
+          <li><a href="#services">Content Production</a></li>
+          <li><a href="#services">Performance</a></li>
+          <li><a href="#regional">Regional &amp; Political</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#roster">Join Roster</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:glavecreative@gmail.com">glavecreative@gmail.com</a></li>
+          <li><a href="tel:+916262811229">+91 6262811229</a></li>
+          <li><a href="https://www.instagram.com/glave.creatives/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/in/glave-creatives-74812041a/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Glave Creatives. All rights reserved.</span>
+      <div class="socials">
+        <a href="https://www.instagram.com/glave.creatives/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/glave-creatives-74812041a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3.2 8.5h3.5V21H3.2V8.5zm5.9 0h3.35v1.7h.05c.47-.85 1.6-1.75 3.3-1.75 3.53 0 4.18 2.2 4.18 5.06V21h-3.5v-5.9c0-1.4-.03-3.2-2-3.2-2 0-2.3 1.52-2.3 3.1V21H9.1V8.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ THEME ============ */
+(function () {
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const meta = document.querySelector('meta[name="theme-color"]');
+  const STORAGE_KEY = 'glave-theme';
+
+  const stored = localStorage.getItem(STORAGE_KEY);
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initial = stored || (prefersDark ? 'dark' : 'light');
+
+  function apply(theme) {
+    root.setAttribute('data-theme', theme);
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#0C0C0E' : '#FFFFFF');
+    localStorage.setItem(STORAGE_KEY, theme);
+  }
+
+  apply(initial);
+
+  toggle.addEventListener('click', function () {
+    apply(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+    if (!localStorage.getItem(STORAGE_KEY)) apply(e.matches ? 'dark' : 'light');
+  });
+})();
+
+/* ============ MOBILE MENU ============ */
+(function () {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  function close() {
+    navLinks.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
+  }
+
+  hamburger.addEventListener('click', function () {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+
+  navLinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', close);
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+
+/* ============ SCROLL REVEAL ============ */
+(function () {
+  const items = document.querySelectorAll('.reveal');
+
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  items.forEach(function (el) { observer.observe(el); });
+})();
+</script>
+</body>
+</html>
